@@ -4,7 +4,7 @@ import * as Firebase from "firebase";
 export const firebaseApp = Firebase.initializeApp({
   apiKey: "AIzaSyClYKanCdFYyHz71ypptEJjusM6E9NwjJ4",
   authDomain: "cesspit-of-ideas-8b6e2.firebaseapp.com",
-  databaseURL: "https://cesspit-of-ideas-8b6e2.firebaseio.com",
+  databaseURL: "https://todo-8b6e2.firebaseio.com",
   projectId: "cesspit-of-ideas-8b6e2",
   storageBucket: "cesspit-of-ideas-8b6e2.appspot.com",
   messagingSenderId: "860237646394"
