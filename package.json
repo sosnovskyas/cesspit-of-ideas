@@ -1,0 +1,38 @@
+{
+  "name": "cesspit-of-ideas",
+  "version": "0.0.1",
+  "description": "cesspit of ideas",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --history-api-fallback",
+    "build": "webpack --mode production",
+    "deploy": "webpack --mode production && firebase deploy"
+  },
+  "dependencies": {
+    "@material-ui/core": "^1.2.1",
+    "@material-ui/icons": "^1.1.0",
+    "firebase": "^4.11.0",
+    "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.5",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-saga": "^0.16.0",
+    "ts-loader": "^4.0.1",
+    "typescript": "^2.9.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-manifest-plugin": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.105",
+    "@types/react-dom": "^16.0.4",
+    "@types/react-redux": "^5.0.15"
+  }
+}

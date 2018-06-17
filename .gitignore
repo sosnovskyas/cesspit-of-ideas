@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+
+firebase-debug.log
+
+dist/
+yarn-error.log
