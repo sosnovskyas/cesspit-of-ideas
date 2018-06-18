@@ -1,10 +1,10 @@
 import * as React from "react";
 import { CircularProgress, Grid, Typography } from "@material-ui/core";
-import { ITaskItem, TTaskUuid } from "../../modules/tasks/tasks-types";
+import { ITask, TTaskUuid } from "../../modules/tasks/tasks-types";
 import TasksCardsListItem from "./tasks-cards-list-item";
 
 interface ITasksCardsListProps {
-  readonly tasks: ITaskItem[];
+  readonly tasks: ITask[];
   onItemOpen(uuid: TTaskUuid): void;
 }
 

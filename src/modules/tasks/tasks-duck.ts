@@ -1,5 +1,5 @@
 import { guid } from "../../helpers";
-import { ITaskItem, TTaskUuid } from "./tasks-types";
+import { ITask, TTaskUuid } from "./tasks-types";
 
 /*
 * CONSTANTS
@@ -46,7 +46,7 @@ export type TTasksAction =
   | ITaskRemoveAction
   | ITaskChangeAction;
 
-export const taskListUpdated = (list: ITaskItem[]): ITaskListUpdatedAction => ({
+export const taskListUpdated = (list: ITask[]): ITaskListUpdatedAction => ({
   type: TASKS_LIST_UPDATED,
   list
 });
@@ -74,12 +74,12 @@ export const taskChange = (uuid: TTaskUuid): ITaskChangeAction => ({
 * REDUCER
 * */
 
-export interface ITasksDialog extends Partial<ITaskItem> {
+export interface ITasksDialog extends Partial<ITask> {
   readonly isOpen: boolean;
   readonly selected?: TTaskUuid;
 }
 export interface ITasksState {
-  readonly items: ITaskItem[];
+  readonly items: ITask[];
   readonly dialog: ITasksDialog;
 }
 

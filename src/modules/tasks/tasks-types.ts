@@ -1,6 +1,6 @@
 export type TTaskUuid = string;
 
-export interface ITaskItem {
+export interface ITask {
   readonly uuid?: TTaskUuid;
   readonly title: string;
   readonly finished: boolean;

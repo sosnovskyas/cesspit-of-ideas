@@ -10,16 +10,16 @@ import {
   Grid
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
-import { ITaskItem } from "../../modules/tasks/tasks-types";
+import { ITask } from "../../modules/tasks/tasks-types";
 import TaskDialogField from "./task-dialog-field";
 
 interface ITaskItemDialogProps {
   readonly isOpen: boolean;
-  readonly task?: ITaskItem;
+  readonly task?: ITask;
   onClose(): void;
 }
 
-interface ITaskItemDialogState extends Partial<ITaskItem> {}
+interface ITaskItemDialogState extends Partial<ITask> {}
 
 function Transition(props: any) {
   return <Slide direction="up" {...props} />;

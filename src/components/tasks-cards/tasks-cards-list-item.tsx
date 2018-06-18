@@ -8,10 +8,10 @@ import {
   CardMedia,
   Typography
 } from "@material-ui/core";
-import { ITaskItem, TTaskUuid } from "../../modules/tasks/tasks-types";
+import { ITask, TTaskUuid } from "../../modules/tasks/tasks-types";
 
 interface ITasksCardsListItemProps {
-  readonly task: ITaskItem;
+  readonly task: ITask;
   onItemOpen(uuid: TTaskUuid): void;
 }
 export default function TasksCardsListItem(
