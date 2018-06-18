@@ -2,7 +2,7 @@ import { firebaseDb } from "../firebase/firebase-module";
 import { tasksRef } from "./tasks-module";
 import { ITask } from "./tasks-types";
 
-export function taskCreateRequest(title: string): Promise<void> {
+export const taskCreateRequest = (title: string): Promise<void> => {
   // Get a key
   var newTaskKey = tasksRef.push().key;
 
@@ -21,4 +21,10 @@ export function taskCreateRequest(title: string): Promise<void> {
   };
 
   return firebaseDb.ref().update(updates);
-}
+};
+
+export const taskUpdateRequest = (params: ITask): Promise<void> => {
+  const { uuid, ...task } = params;
+
+  return firebaseDb.ref(`/tasks/${uuid}`).set({ ...task });
+};
