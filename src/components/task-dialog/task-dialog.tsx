@@ -7,9 +7,12 @@ import {
   Slide,
   Toolbar,
   Typography,
-  Grid
+  Grid,
+  Button
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import { store } from "../../modules/redux/redux-module";
+import { taskSave } from "../../modules/tasks/tasks-duck";
 import { ITask } from "../../modules/tasks/tasks-types";
 import TaskDialogField from "./task-dialog-field";
 
@@ -19,7 +22,7 @@ interface ITaskItemDialogProps {
   onClose(): void;
 }
 
-interface ITaskItemDialogState extends Partial<ITask> {}
+interface ITaskItemDialogState extends ITask {}
 
 function Transition(props: any) {
   return <Slide direction="up" {...props} />;
@@ -116,6 +119,7 @@ export default class TaskDialog extends React.Component<
             <Typography variant="display1" color="inherit">
               {task.title}
             </Typography>
+            <Button onClick={this.onSave}>{"Save"}</Button>
           </Toolbar>
         </AppBar>
         <Grid container direction="column" wrap="nowrap" spacing={24}>
@@ -159,9 +163,12 @@ export default class TaskDialog extends React.Component<
     );
   }
 
+  private onSave = () => store.dispatch(taskSave({ ...this.state }));
+
   private onChange = (name: keyof ITaskItemDialogState) => (
-    value: ChangeEvent<HTMLInputElement>
+    event: ChangeEvent<HTMLInputElement>
   ) => {
-    this.setState({ [name]: value.target.value });
+    const { value } = event.target;
+    this.setState(current => ({ ...current, [name]: value }));
   };
 }

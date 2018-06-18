@@ -10,6 +10,7 @@ export const TASKS_ITEM_OPEN: "TASKS_ITEM_OPEN" = "TASKS_ITEM_OPEN";
 export const TASKS_ITEM_CLOSE: "TASKS_ITEM_CLOSE" = "TASKS_ITEM_CLOSE";
 export const TASKS_ITEM_REMOVE: "TASKS_ITEM_REMOVE" = "TASKS_ITEM_REMOVE";
 export const TASKS_ITEM_CHANGE: "TASKS_ITEM_CHANGE" = "TASKS_ITEM_CHANGE";
+export const TASKS_ITEM_SAVE: "TASKS_ITEM_SAVE" = "TASKS_ITEM_SAVE";
 
 /*
 * ACTIONS
@@ -37,6 +38,10 @@ export interface ITaskChangeAction {
   readonly type: typeof TASKS_ITEM_CHANGE;
   readonly uuid: TTaskUuid;
 }
+export interface ITaskSaveAction {
+  readonly type: typeof TASKS_ITEM_SAVE;
+  readonly task: ITask;
+}
 
 export type TTasksAction =
   | ITaskListUpdatedAction
@@ -44,7 +49,8 @@ export type TTasksAction =
   | ITaskOpenAction
   | ITaskCloseAction
   | ITaskRemoveAction
-  | ITaskChangeAction;
+  | ITaskChangeAction
+  | ITaskSaveAction;
 
 export const taskListUpdated = (list: ITask[]): ITaskListUpdatedAction => ({
   type: TASKS_LIST_UPDATED,
@@ -65,9 +71,9 @@ export const taskOpen = (uuid: TTaskUuid): ITaskOpenAction => ({
 export const taskClose = (): ITaskCloseAction => ({
   type: TASKS_ITEM_CLOSE
 });
-export const taskChange = (uuid: TTaskUuid): ITaskChangeAction => ({
-  type: TASKS_ITEM_CHANGE,
-  uuid
+export const taskSave = (task: ITask): ITaskSaveAction => ({
+  type: TASKS_ITEM_SAVE,
+  task
 });
 
 /*
